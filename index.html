@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <meta name="google" content="notranslate" />
+    <title>Note Taking Notebook</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      (function () {
+        let redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != location.href) {
+          history.replaceState(null, null, redirect);
+          // REMOVE THIS - just showing the redirect route in the UI
+          document.body.setAttribute(
+            "message",
+            "This page was redirected by 404.html, from the route: " + redirect
+          );
+        } else {
+          // REMOVE THIS - just showing the redirect route in the UI
+          document.body.setAttribute(
+            "message",
+            "This page was loaded directly from the index.html file"
+          );
+        }
+      })();
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
